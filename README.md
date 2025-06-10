@@ -61,3 +61,4 @@ It applies a 1.5% fee, ensures a minimum fee of KES 10, and caps the maximum fee
 
 - **Language**: JavaScript (Vanilla)
 - **Platform**: Web Browser Console
+https://github.com/Carltonshiyai/Code-Challenge-1
