@@ -1,34 +1,30 @@
-// function to estimate transaction fee for sending money via mobile money service
 function estimateTransactionFee(amountToSend) {
-  const percentageFee = 0.015;
-  const minFee = 10;
-  const maxFee = 70;
+    // Calculate the raw transaction fee (1.5% of the amount)
+    let transactionFee = amountToSend * 0.015;
 
-  // Calculate 1.5% fee
-  let calculatedFee = amountToSend * percentageFee;
+    // Apply the minimum and maximum fee limits
+    if (transactionFee < 10) {
+        transactionFee = 10; // Minimum fee
+    } else if (transactionFee > 70) {
+        transactionFee = 70; // Maximum fee
+    }
 
-  // Apply minimum and maximum fee limits
-  if (calculatedFee < minFee) {
-    calculatedFee = minFee;
-  } else if (calculatedFee > maxFee) {
-    calculatedFee = maxFee;
-  }
+    // Calculate the total amount to be debited
+    const totalAmount = amountToSend + transactionFee;
 
-  const totalDebited = amountToSend + calculatedFee;
-
-  // Output the result
-  console.log(`Sending KES ${amountToSend}:`);
-  console.log(`Calculated Transaction Fee: KES ${calculatedFee}`);
-  console.log(`Total amount to be debited: KES ${totalDebited}`);
-  console.log(`\nSend Money Securely!`);
+    // Print the results to the console
+    console.log(`Amount to Send: KES ${amountToSend}`);
+    console.log(`Transaction Fee: KES ${transactionFee}`);
+    console.log(`Total Amount Debited: KES ${totalAmount}`);
 }
 
-// Prompt user input the user for the amount they want to send
-const userInput = prompt("Unatuma Ngapi? (KES):");
-const amount = parseFloat(Input);
+// Prompt the user to enter the amount they wish to send
+const userInput = prompt("Enter the amount of money you wish to send:");
+const amountToSend = parseFloat(userInput);
 
-if (!isNaN(amount) && amount > 0) {
-  estimateTransactionFee(amount);
+// Validate the input and call the function
+if (!isNaN(amountToSend) && amountToSend > 0) {
+    estimateTransactionFee(amountToSend);
 } else {
-  console.log("Tafadhali andika kiasi halali cha kutuma.");
+    console.log("Please enter a valid positive number.");
 }
