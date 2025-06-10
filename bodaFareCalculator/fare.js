@@ -5,7 +5,7 @@ function calculateBodaFare(distanceInKm) {
 
   const distanceFare = distanceInKm * chargePerKm;
   const totalFare = baseFare + distanceFare;
-
+   
   console.log(`Uko kwote? Io ni ${distanceInKm} km:`);
   console.log(`Ukikalia Pikipiki: KES ${baseFare}`);
   console.log(`Mpaka Uko: KES ${distanceFare}`);
@@ -14,7 +14,7 @@ function calculateBodaFare(distanceInKm) {
 }
 
 // Prompt the user for input
-const userInput = prompt("Unafika wapi Mkubwa? Kilometer ngapi?:");
+const Input = prompt("Unafika wapi Mkubwa? Kilometer ngapi?:");
 const distance = parseFloat(userInput);
 
 if (!isNaN(distance) && distance > 0) {

@@ -25,7 +25,7 @@ function estimateTransactionFee(amountToSend) {
 
 // Prompt user input the user for the amount they want to send
 const userInput = prompt("Unatuma Ngapi? (KES):");
-const amount = parseFloat(userInput);
+const amount = parseFloat(Input);
 
 if (!isNaN(amount) && amount > 0) {
   estimateTransactionFee(amount);
